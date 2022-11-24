@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja"">
+  <head>
+    <meta charset="UTF-8" />
+    <title>fetch関数を利用したApollo Serverからのデータ取得</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    async function fetchBooks() {
+      const response = await fetch("http://localhost:4000", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          /*
+          query: `query{
+                      users{
+                          id
+                          name
+                          email
+                        }
+                    }`,
+                    */
+                   /*
+                   query:`query{
+                    posts{
+                      id
+                      title
+                    }
+                   }`
+                   */
+          query:`query($userId:ID!){
+            user(id:$userId){
+              name
+              email
+              myPosts{
+                title
+              }
+            }
+          }`,
+          variables:{
+            userId:"1"
+          }
+        }),
+      });
+      const data = await response.json();
+      console.log(data)
+      document.getElementById('app').innerHTML = `${JSON.stringify(data)}`;
+
+    }
+    fetchBooks();
+  </script>
+</html>
