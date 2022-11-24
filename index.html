@@ -26,10 +26,24 @@
                    query:`query{
                     posts{
                       id
-                     得 title
+                      title
                     }
                    }`
                    */
+          /*
+          query:`mutation($name:String!,$email:String!){
+            createUser(name:$name,email:$email){
+              id
+              name
+              email
+            }
+          }`,
+          variables:{
+            name:'test_test',
+            email: 'test_address@example.com' 
+          }
+          */
+         /*
           query:`query($userId:ID!){
             user(id:$userId){
               name
@@ -42,6 +56,7 @@
           variables:{
             userId:"1"
           }
+          */
         }),
       });
       const data = await response.json();
