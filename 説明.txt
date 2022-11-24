@@ -1,0 +1,15 @@
+localhost:4000　で sandbox 
+SQLite は SQLデータベースの実装の一つ
+  データの中身が一つのファイルに入っていて簡便
+  Ruby On Rails の開発用のDBとして広まった
+PrismaはORマッパー Sequelizeと役割は同じ
+  schema.prisma を書くことで migration を自動作成
+  npx prisma studio でGUIが起動
+
+デモ
+  データの取得
+    取得データの項目を変更
+    階層のあるデータの取得
+  データの追加
+  データの変更
+  
